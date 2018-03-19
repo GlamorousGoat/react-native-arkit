@@ -174,10 +174,10 @@ CGFloat focDistance = 0.2f;
 
 
 - (NSDictionary *)getSceneObjectsHitResult:(const CGPoint)tapPoint  {
-    NSDictionary *options = @{
+     NSDictionary *options = @{
                               SCNHitTestRootNodeKey: self.localOrigin,
                               SCNHitTestSortResultsKey: @(YES),
-                              SCNHitTestOptionSearchMode: @(1)
+                              @"SCNHitTestOptionSearchMode": @(SCNHitTestSearchModeAll)
                               };
     NSArray<SCNHitTestResult *> *results = [_arView hitTest:tapPoint options:options];
     NSMutableArray * resultsMapped = [self mapHitResultsWithSceneResults:results];
